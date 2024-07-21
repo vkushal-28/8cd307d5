@@ -17,6 +17,7 @@ const ActivityFeed = () => {
   // State Data
   const [callDetails, setCallDetails] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalId, setIsModalId] = useState(null);
 
   useEffect(() => {
     fetchActivities();
@@ -34,8 +35,9 @@ const ActivityFeed = () => {
   let groupedCalls = groupCallsByDate(calls);
 
   const handleModalOpen = async (e, id) => {
-    setIsModalOpen(true);
-
+    // setIsModalOpen(true);
+    console.log(id);
+    setIsModalId(id);
     await axios
       .get(`${process.env.REACT_APP_API_URL}/activities/${id}`)
       .then(({ data }) => {
@@ -43,8 +45,9 @@ const ActivityFeed = () => {
       });
   };
 
-  const handleModalClose = () => {
+  const handleModalClose = (e, id) => {
     setIsModalOpen(false);
+    id === modalId && setIsModalId(null);
   };
   return (
     <div>
@@ -64,7 +67,8 @@ const ActivityFeed = () => {
                       call={call}
                       indx={ind + 1}
                       onOpenClick={(e) => handleModalOpen(e, call.id)}
-                      onCloseClick={(e) => handleModalClose}
+                      onCloseClick={(e) => handleModalClose(e, call.id)}
+                      modalId={modalId}
                     />
                   </Suspense>
                 ))}
