@@ -39,8 +39,8 @@ const Tabs = ({ children }) => {
 
   return (
     <div className="container mx-auto max-sm:mt-0 mt-4">
-      <div className=" w-full flex  justify-between max-sm:px-4 ">
-        <div className="relative flex max-sm:w-full   max-md:justify-center justify-start h-11 bg-white hover:bg-gray rounded-lg shadow-lg drop-shadow-md ">
+      <div className=" w-full flex  justify-between max-xl:px-4 ">
+        <div className="relative flex max-sm:w-full max-md:justify-center justify-start max-sm:h-9 h-11 bg-white hover:bg-gray rounded-lg shadow-lg drop-shadow-md ">
           {React.Children.map(children, (child, index) => (
             <button
               key={index}
@@ -53,7 +53,7 @@ const Tabs = ({ children }) => {
             </button>
           ))}
           <motion.div
-            className="absolute -bottom-0 h-11 bg-bgLightGreenTwo w-full z-0 border-b-2 border-emerald-700  rounded-lg"
+            className="absolute -bottom-0 max-sm:h-9 h-11 bg-bgLightGreenTwo w-full z-0 border-b-2 border-emerald-700  rounded-lg"
             animate={underlineProps}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           />
@@ -79,12 +79,12 @@ const Tabs = ({ children }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.3 }}
-        className="mt-4 sm:px-0 px-0  shadow-xl drop-shadow-lg shadow-gray-500  rounded-tl-3xl rounded-tr-3xl overflow-hidden"
+        className="max-md:mt-2 mt-4 sm:px-0 px-0 max-xl:mx-4 max-md:mx-0  shadow-xl drop-shadow-lg shadow-gray-500  rounded-tl-3xl rounded-tr-3xl overflow-hidden"
         style={{
           height: `calc(100vh - ${headerHeight + tabHeight}px - 2.1rem)`,
         }}>
         <div
-          className=" px-7 max-sm:px-5 py-5 max-sm:py-4 bg-gradient-to-br from-bgPrakey from-[20%] via-bgLightGreen
+          className=" px-7 max-sm:px-4 py-5 max-sm:py-3 bg-gradient-to-br from-bgPrakey from-[20%] via-bgLightGreen
         via-[60%] to-bgLightGreenThree to-[90%] h-full  overflow-auto rounded-tl-3xl rounded-tr-3xl ">
           {children[activeTab]}
         </div>

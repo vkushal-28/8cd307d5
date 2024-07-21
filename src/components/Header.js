@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className=" text-white py-4  bg-emerald-700  ">
+    <header className=" text-white max-md:py-2 py-4  bg-emerald-700  ">
       <div className="container mx-auto max-sm:flex max-sm:justify-center">
         <svg
           width="120px"

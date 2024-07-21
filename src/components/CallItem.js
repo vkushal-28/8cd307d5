@@ -13,7 +13,7 @@ const CallItem = ({ call, indx, onOpenClick, onCloseClick }) => {
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: indx * 0.1 }}
       className=" w-full p-[2px] rounded-tl-[15px] rounded-r-[15px] rounded-bl-[15px] mb-2 rounded-br-[15px]  rounded bg-gradient-to-br from-green-600 from-[10%] via-bgLightGreenTwo/90 via-[50%]  to-emerald-700  to-[90%]  shadow-lg drop-shadow-lg z-0 ">
-      <div className="relative w-full py-2 px-5 max-sm:px-3 bg-white  dark:bg-blue rounded-tl-[22px] rounded-tr-[15px]  rounded-br-[22px] rounded-bl-[15px] flex justify-between items-center  group overflow-hidden hover:bg-gray-50">
+      <div className="relative w-full py-2 px-5 max-sm:px-3 max-sm:py-1 bg-white  dark:bg-blue rounded-tl-[22px] rounded-tr-[15px]  rounded-br-[22px] rounded-bl-[15px] flex justify-between items-center  group overflow-hidden hover:bg-gray-50">
         <div
           className="flex justify-start items-center w-[90%] max-lg:w-[60%] max-md:w-[60%] z-20 "
           onClick={onOpenClick}>
