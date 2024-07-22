@@ -58,8 +58,8 @@ export const CallsProvider = ({ children }) => {
     await axios
       .patch(`${process.env.REACT_APP_API_URL}/reset`)
       .then(({ data }) => {
-        setArchivedCalls([]);
         toast.success(data);
+        setArchivedCalls([]);
       });
   };
 

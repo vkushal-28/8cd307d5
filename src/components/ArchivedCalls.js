@@ -5,7 +5,6 @@ import { groupCallsByDate } from "../utils/groupCallsByDate";
 import DateHeader from "./DateHeader";
 import Loading from "./Loading";
 import Message from "./Message";
-import CallDetailModal from "./CallDetailModal";
 import axios from "axios";
 const CallItem = lazy(() => import("./CallItem.js"));
 
@@ -19,8 +18,7 @@ const ArchivedCalls = () => {
   } = useContext(CallsContext);
 
   // State Data
-  const [callDetails, setCallDetails] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalId, setIsModalId] = useState(null);
 
   useEffect(() => {
     fetchArchivedCalls();
@@ -38,18 +36,13 @@ const ArchivedCalls = () => {
   const groupedCalls = groupCallsByDate(archivedCalls);
 
   const handleModalOpen = async (e, id) => {
-    setIsModalOpen(true);
-
-    await axios
-      .get(`${process.env.REACT_APP_API_URL}/activities/${id}`)
-      .then(({ data }) => {
-        setCallDetails(data);
-      });
+    setIsModalId(id);
   };
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+  const handleModalClose = (e, id) => {
+    id === modalId && setIsModalId(null);
   };
+
   return (
     <>
       <AnimatePresence>
@@ -79,11 +72,6 @@ const ArchivedCalls = () => {
           <Message text="No archived record found" />
         ) : null}
       </AnimatePresence>
-      <CallDetailModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        call={callDetails}
-      />
     </>
   );
 };

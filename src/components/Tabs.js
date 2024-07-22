@@ -64,7 +64,7 @@ const Tabs = ({ children }) => {
             activeTab ? unarchiveAllCalls() : archiveAllCalls();
           }}
           className={
-            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition-all delay-100 ease-in-out drop-shadow-md "
+            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition duration-300  ease-in-out "
           }>
           <i
             className={`fi fi-sr-folder-${
