@@ -64,7 +64,8 @@ const ArchivedCalls = () => {
                       call={call}
                       indx={ind + 1}
                       onOpenClick={(e) => handleModalOpen(e, call.id)}
-                      onCloseClick={(e) => handleModalClose}
+                      onCloseClick={(e) => handleModalClose(e, call.id)}
+                      modalId={modalId}
                     />
                   </Suspense>
                 ))}

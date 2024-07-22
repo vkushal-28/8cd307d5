@@ -7,7 +7,7 @@ const Message = ({ text }) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8 }}
-      className="w-full h-full min-lg:flex items-center text-center justify-center min-xl:text-lg max-md:mt-8 text-slate-500 ">
+      className="w-full h-full max-lg:flex-none flex items-center cursor-pointer text-center justify-center min-xl:text-lg max-md:mt-8 text-slate-500 ">
       {text}
     </motion.div>
   );
