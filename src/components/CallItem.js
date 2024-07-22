@@ -29,13 +29,13 @@ const CallItem = ({ call, indx, onOpenClick, onCloseClick, modalId }) => {
             } text-lg  mt-2 mr-4 `}></i>
           <div>
             <p className=" font-semibold text-slate-800 ">{call.from}</p>
-            <p className="text-sm line-clamp-1 text-slate-400  ">
+            <p className="text-sm line-clamp-1 text-slate-500/80  ">
               <span className="capitalize">{`${call.call_type} `}</span>
               {`call to ${call.to}  via ${call.via}`}
             </p>
             {modalId === call.id && (
               <MotionComponent transition={{ duration: 0.2 }}>
-                <div className="text-slate-500 text-sm">
+                <div className="text-slate-500/80 text-sm">
                   <p>{seconds_to_days_hours_mins_secs_str(call.duration)}</p>
                 </div>
               </MotionComponent>
@@ -44,7 +44,7 @@ const CallItem = ({ call, indx, onOpenClick, onCloseClick, modalId }) => {
         </div>
 
         <p
-          className="text-sm text-gray-400 max-md:font-normal font-semibold max-lg:px-8 pr-0 "
+          className="text-sm text-slate-500/80 max-md:font-normal font-semibold max-lg:px-8 pr-0 "
           onClick={modalId === call.id ? onCloseClick : onOpenClick}>
           {dayjs(call.created_at).format("h:mm A")}
         </p>
