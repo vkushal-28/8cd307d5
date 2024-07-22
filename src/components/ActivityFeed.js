@@ -20,6 +20,7 @@ const ActivityFeed = () => {
     fetchActivities();
   }, []); // eslint-disable-line
 
+  // Function to fetch activities data
   const fetchActivities = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/activities`)
@@ -29,6 +30,7 @@ const ActivityFeed = () => {
       });
   };
 
+  // customize group calls data
   let groupedCalls = groupCallsByDate(calls);
 
   const handleModalOpen = async (e, id) => {

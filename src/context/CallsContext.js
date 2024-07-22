@@ -15,6 +15,7 @@ export const CallsProvider = ({ children }) => {
     setTempCalls(calls);
   }, [calls]);
 
+  // Function to archive single call
   const archiveCall = async (id) => {
     await axios
       .patch(`${process.env.REACT_APP_API_URL}/activities/${id}`, {
@@ -26,6 +27,7 @@ export const CallsProvider = ({ children }) => {
       });
   };
 
+  // Function to un-archive single call
   const unarchiveCall = async (id) => {
     await axios
       .patch(`${process.env.REACT_APP_API_URL}/activities/${id}`, {
@@ -37,6 +39,7 @@ export const CallsProvider = ({ children }) => {
       });
   };
 
+  // Function to archive all calls
   const archiveAllCalls = async () => {
     for (let i = 0; i < tempCalls.length; i++) {
       const call = calls[i];

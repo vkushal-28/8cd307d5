@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
+import MotionComponent from "./MotionComponent";
 
 const DateHeader = ({ date }) => {
   return (
-    <motion.div
+    <MotionComponent
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
@@ -12,7 +12,7 @@ const DateHeader = ({ date }) => {
       <span className="text-sm whitespace-nowrap mr-2 text-slate-500">
         {date}
       </span>
-    </motion.div>
+    </MotionComponent>
   );
 };
 

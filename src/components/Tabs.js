@@ -5,7 +5,8 @@ import { CallsContext } from "../context/CallsContext";
 
 const Tabs = ({ children }) => {
   // Calls Context
-  const { archiveAllCalls, unarchiveAllCalls } = useContext(CallsContext);
+  const { archiveAllCalls, unarchiveAllCalls, calls, archivedCalls } =
+    useContext(CallsContext);
 
   // State Data
   const [activeTab, setActiveTab] = useState(0);
@@ -64,7 +65,11 @@ const Tabs = ({ children }) => {
             activeTab ? unarchiveAllCalls() : archiveAllCalls();
           }}
           className={
-            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition duration-300  ease-in-out "
+            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition duration-300  ease-in-out py-2 "
+          }
+          disabled={
+            (activeTab === 0 && calls.length === 0) ||
+            (activeTab === 1 && archivedCalls.length === 0)
           }>
           <i
             className={`fi fi-sr-folder-${
@@ -74,7 +79,6 @@ const Tabs = ({ children }) => {
         </Button>
       </div>
       <motion.div
-        key={activeTab}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}

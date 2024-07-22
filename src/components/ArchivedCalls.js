@@ -24,6 +24,7 @@ const ArchivedCalls = () => {
     fetchArchivedCalls();
   }, []); // eslint-disable-line
 
+  // Function to fetch archived calls data
   const fetchArchivedCalls = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/activities`)
@@ -33,7 +34,8 @@ const ArchivedCalls = () => {
       });
   };
 
-  const groupedCalls = groupCallsByDate(archivedCalls);
+  // customize archived calls data
+  const groupArchivedCalls = groupCallsByDate(archivedCalls);
 
   const handleModalOpen = async (e, id) => {
     setIsModalId(id);
@@ -48,13 +50,14 @@ const ArchivedCalls = () => {
       <AnimatePresence>
         {initialArchivedLoading ? (
           <Loading />
-        ) : Object.keys(groupedCalls).length > 0 && !initialArchivedLoading ? (
-          Object.keys(groupedCalls)
+        ) : Object.keys(groupArchivedCalls).length > 0 &&
+          !initialArchivedLoading ? (
+          Object.keys(groupArchivedCalls)
             .reverse()
             .map((date, i) => (
               <div key={i}>
                 <DateHeader date={date} />
-                {groupedCalls[date].map((call, ind) => (
+                {groupArchivedCalls[date].map((call, ind) => (
                   <Suspense fallback={<Loading />} key={ind}>
                     <CallItem
                       key={call.id}
@@ -68,7 +71,7 @@ const ArchivedCalls = () => {
               </div>
             ))
         ) : !initialArchivedLoading &&
-          Object.keys(groupedCalls).length === 0 ? (
+          Object.keys(groupArchivedCalls).length === 0 ? (
           <Message text="No archived record found" />
         ) : null}
       </AnimatePresence>
