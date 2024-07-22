@@ -65,7 +65,7 @@ const Tabs = ({ children }) => {
             activeTab ? unarchiveAllCalls() : archiveAllCalls();
           }}
           className={
-            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition duration-300  ease-in-out py-2 disabled:from-emerald-600 disabled:to-green-400 disabled:text-gray-50 opacity-80"
+            "bg-gradient-to-r from-emerald-800 to-green-600 hover:from-green-600 hover:to-emerald-800  rounded-lg shadow-lg  flex items-center justify-center max-sm:fixed max-sm:bottom-0 max-sm:right-0 max-sm:rounded-none z-40 max-sm:w-full transition duration-300  ease-in-out py-2 disabled:from-emerald-600 disabled:to-green-400 disabled:text-gray-50 disabled:opacity-80"
           }
           disabled={
             (activeTab === 0 && calls.length === 0) ||
