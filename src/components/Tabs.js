@@ -88,7 +88,7 @@ const Tabs = ({ children }) => {
           height: `calc(100vh - ${headerHeight + tabHeight}px - 2.1rem)`,
         }}>
         <div
-          className=" px-7 max-md:px-3 py-3 max-md:py-2 bg-gradient-to-br from-bgPrakey from-[20%] via-bgLightGreen
+          className=" px-7 max-md:px-3 py-3  max-md:py-2 max-md:pb-10 bg-gradient-to-br from-bgPrakey from-[20%] via-bgLightGreen
         via-[60%] to-bgLightGreenThree to-[90%] h-full  overflow-auto rounded-tl-3xl rounded-tr-3xl ">
           {children[activeTab]}
         </div>
